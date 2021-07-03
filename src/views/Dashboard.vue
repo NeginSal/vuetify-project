@@ -2,6 +2,17 @@
 <div class="dashboard my-3 mx-3">
   <h1 class="subheading purple--text  lighten-1--text">Dashboard</h1>
   <v-container class="my-5">
+    <v-layout row class="mb-3">
+      <v-btn small flat class="ml-5 mr-3" color="gray" @click="sortBy('title')">
+        <v-icon small left >mdi-file-document-edit-outline</v-icon>
+        <span class="caption text-lowercase">By project name</span>
+      </v-btn>
+      <v-btn small flat color="gray" @click="sortBy('person')">
+        <v-icon small left >mdi-account-edit-outline</v-icon>
+        <span class="caption text-lowercase">By persom</span>
+      </v-btn>
+    </v-layout>
+
     <v-card flat class="pa-3 ma-2 purple lighten-5" v-for="project in projects" :key="project.title">
       <v-layout row wrap :class="`pa-3 project ${project.status}`">
         <v-flex xs12 md6>
@@ -39,6 +50,11 @@
           {title:'Design Video tumbnails', person:'Ryu', due:'20 Sep 2021', status:'complete'},
           {title:'Create a Cummunity forum', person:'Guken', due:'10 Oct 2021', status:'overdue'},
         ]
+      }
+    },
+    methods: {
+      sortBy(prop){
+        this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
       }
     }
 
