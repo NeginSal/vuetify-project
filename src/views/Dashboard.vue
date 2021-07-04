@@ -3,14 +3,24 @@
   <h1 class="subheading purple--text  lighten-1--text">Dashboard</h1>
   <v-container class="my-5">
     <v-layout row class="mb-3">
-      <v-btn small flat class="ml-5 mr-3" color="gray" @click="sortBy('title')">
+      <v-tooltip top>
+      <template v-slot:activator="{ on, attrs }">
+      <v-btn small flat class="ml-5 mr-3" color="gray" @click="sortBy('title')" v-bind="attrs" v-on="on">
         <v-icon small left >mdi-file-document-edit-outline</v-icon>
         <span class="caption text-lowercase">By project name</span>
       </v-btn>
-      <v-btn small flat color="gray" @click="sortBy('person')">
+      </template>
+      <span>Sort projects by name</span>
+      </v-tooltip>
+      <v-tooltip top>
+      <template v-slot:activator="{ on, attrs }">
+      <v-btn small flat color="gray" @click="sortBy('person')" v-bind="attrs" v-on="on">
         <v-icon small left >mdi-account-edit-outline</v-icon>
         <span class="caption text-lowercase">By persom</span>
       </v-btn>
+      </template>
+      <span>Sort projects by person</span>
+      </v-tooltip>
     </v-layout>
 
     <v-card flat class="pa-3 ma-2 purple lighten-5" v-for="project in projects" :key="project.title">
