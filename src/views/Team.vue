@@ -4,7 +4,7 @@
     <v-container class="my-5">
       <v-layout row wrap>
         <v-flex xs12 sm6 md4 lg3 v-for="person in team" :key="person.name">
-          <v-card flat class="text-sm-center ma-3">
+          <v-card flat class="text-center ma-3">
             <v-responsive class="pt-4">
               images goes here
             </v-responsive>
@@ -12,8 +12,13 @@
               <div class="subheading">{{person.name}}</div>
               <div class="grey--text">{{person.role}}</div>
             </v-card-text>
+            <v-card-action>
+              <v-btn flat color="grey">
+                <v-icon small left>mdi-message-text-outline</v-icon>
+                <span>Message</span>
+              </v-btn>
+            </v-card-action>
           </v-card>
-
         </v-flex>
       </v-layout>
 
