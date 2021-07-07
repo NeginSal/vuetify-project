@@ -67,7 +67,6 @@
         this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
       }
     }
-
   }
 </script>
 <style scoped>
@@ -85,7 +84,6 @@
    }
    #chip.v-chip.ongoing{
      background: #0099ff;
-
    }
    #chip.v-chip.overdue{
     background: #ff0000;

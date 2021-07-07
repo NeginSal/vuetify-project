@@ -2,6 +2,14 @@
   <nav>
 <!--Navigation-drawer-->
     <v-navigation-drawer app v-model="drawer" class="deep-orange lighten-4" >
+      <v-layout column align-center>
+        <v-flex class="mt-5">
+          <v-avatar size="100">
+            <img src="/card1.jpg" alt="">
+          </v-avatar>
+          <p class="black--text text-center subheading mt-1">Negin</p>
+        </v-flex>
+      </v-layout>
       <v-list>
         <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
           <v-list-item-action>
@@ -41,9 +49,7 @@ export default {
       {icon: 'mdi-view-dashboard' ,text:'Dashboard', route: '/'},
       {icon: 'mdi-folder-open' ,text:'My Projects', route: '/projects'},
       {icon: 'mdi-human-greeting' ,text:'Team', route: '/team'},
-
     ]
-
   })
 }
 </script>
