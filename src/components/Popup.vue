@@ -12,7 +12,12 @@
                     new project
               </v-card-title>
               <v-card-text class="black--text mt-4">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <v-form class="px-3">
+                      <v-text-field label="Title" v-model="title" prepend-icon="mdi-format-title"></v-text-field>
+                      <v-textarea label="Information" v-model="content" prepend-icon="mdi-information-outline"></v-textarea>
+                      <v-btn flat class="success mx-0 mt-3" @click="submit"> Add Project</v-btn>
+                  </v-form>
+
               </v-card-text>
            </v-card>
         </v-dialog>
@@ -21,6 +26,17 @@
 
 <script>
 export default {
+    data(){
+        return{
+            title:'',
+            content:''
+        }
+    },
+    methods:{
+        submit(){
+             console.log(this.title,this.content);
+        }
+    }
 
 }
 </script>
