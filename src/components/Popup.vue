@@ -7,7 +7,7 @@
               </v-btn>
           </template>
           <v-card >
-              <v-card-title class="text-h5 red ">
+              <v-card-title class="text-h5 blue-grey lighten-2 ">
                   <v-icon left>mdi-plus-box-outline</v-icon>
                     new project
               </v-card-title>
@@ -15,7 +15,16 @@
                   <v-form class="px-3">
                       <v-text-field label="Title" v-model="title" prepend-icon="mdi-format-title"></v-text-field>
                       <v-textarea label="Information" v-model="content" prepend-icon="mdi-information-outline"></v-textarea>
-                      <v-btn flat class="success mx-0 mt-3" @click="submit"> Add Project</v-btn>
+
+                      <v-menu>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-text-field v-model="date" label="Duo date" prepend-icon="mdi-calendar"
+                                readonly v-bind="attrs" v-on="on">
+                            </v-text-field>
+                        </template>
+                        <v-date-picker v-model="date" @input="menu2 = false"></v-date-picker>
+                      </v-menu>
+                      <v-btn flat class="blue-grey lighten-2 mx-0 mt-3" @click="submit"> Add Project</v-btn>
                   </v-form>
 
               </v-card-text>
@@ -29,13 +38,16 @@ export default {
     data(){
         return{
             title:'',
-            content:''
+            content:'',
+            menu2: false,
+
         }
     },
     methods:{
         submit(){
              console.log(this.title,this.content);
-        }
+        },
+
     }
 
 }
@@ -44,14 +56,3 @@ export default {
 <style>
 
 </style>
-      <v-dialog max-width="600px">
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn flat slot="activator" class="success"></v-btn>
-              <v-card>
-              <v-card-title>
-                  <h2>Add a new project</h2>
-
-              </v-card-title>
-             </v-card>
-           </template>
-      </v-dialog>
